@@ -12,7 +12,7 @@ func randDeepColor() color.RGBA {
 
 	randColor := randColor()
 
-	increase := float64(30 + r.Intn(255))
+	increase := float64(30 + rand.Intn(255))
 
 	red := math.Abs(math.Min(float64(randColor.R)-increase, 255))
 
@@ -25,9 +25,9 @@ func randDeepColor() color.RGBA {
 //随机生成浅色.
 func RandLightColor() color.RGBA {
 
-	red := r.Intn(55) + 200
-	green := r.Intn(55) + 200
-	blue := r.Intn(55) + 200
+	red := rand.Intn(55) + 200
+	green := rand.Intn(55) + 200
+	blue := rand.Intn(55) + 200
 
 	return color.RGBA{R: uint8(red), G: uint8(green), B: uint8(blue), A: uint8(255)}
 }
@@ -35,9 +35,9 @@ func RandLightColor() color.RGBA {
 //生成随机颜色.
 func randColor() color.RGBA {
 
-	red := r.Intn(255)
-	green := r.Intn(255)
-	blue := r.Intn(255)
+	red := rand.Intn(255)
+	green := rand.Intn(255)
+	blue := rand.Intn(255)
 	if (red + green) > 400 {
 		blue = 0
 	} else {
@@ -56,7 +56,7 @@ func RandText(num int) string {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	for i := 0; i < num; i++ {
-		text = text + string(txtChars[r.Intn(textNum)])
+		text = text + string(txtChars[rand.Intn(textNum)])
 	}
 	return text
 }

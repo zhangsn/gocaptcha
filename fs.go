@@ -2,14 +2,16 @@ package gocaptcha
 
 import (
 	"embed"
-	"github.com/golang/freetype"
-	"github.com/golang/freetype/truetype"
 	"io/fs"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/golang/freetype"
+	"github.com/golang/freetype/truetype"
 )
 
 //go:embed fonts
@@ -49,7 +51,7 @@ func ReadFonts(dirPth string, suffix string) (err error) {
 
 //获取所及字体.
 func RandFontFamily() (*truetype.Font, error) {
-	fontFile := fontFamily[r.Intn(len(fontFamily))]
+	fontFile := fontFamily[rand.Intn(len(fontFamily))]
 	fontBytes, err := ReadFile(fontFile)
 	if err != nil {
 		log.Printf("读取文件失败 -> %s - %+v\n", fontFile, err)
