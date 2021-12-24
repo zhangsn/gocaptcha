@@ -4,7 +4,6 @@ import (
 	"image/color"
 	"math"
 	"math/rand"
-	"time"
 )
 
 //随机生成深色系.
@@ -53,8 +52,6 @@ func randColor() color.RGBA {
 func RandText(num int) string {
 	textNum := len(txtChars)
 	text := ""
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-
 	for i := 0; i < num; i++ {
 		text = text + string(txtChars[rand.Intn(textNum)])
 	}

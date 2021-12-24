@@ -13,7 +13,6 @@ import (
 	"io"
 	"math"
 	"math/rand"
-	"time"
 
 	"github.com/golang/freetype"
 	"golang.org/x/image/font"
@@ -296,8 +295,6 @@ func (captcha *CaptchaImage) DrawTextNoise(complex CaptchaComplex) *CaptchaImage
 	}
 
 	maxSize := (captcha.height * captcha.width) / density
-
-	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	c := freetype.NewContext()
 	c.SetDPI(*dpi)
